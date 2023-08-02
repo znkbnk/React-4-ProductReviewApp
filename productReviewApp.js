@@ -1,7 +1,6 @@
 // Step 4: Create a ProductReviewApp component
 
-jsx
-Copy code
+
 import React, { useState } from 'react';
 import productsData from './productsData'; // Assuming the productsData array is provided in a separate file
 
