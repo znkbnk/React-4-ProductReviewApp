@@ -1,7 +1,6 @@
 // Step 9: Create the ReviewForm component
 
-jsx
-Copy code
+
 import React, { useState } from 'react';
 
 const ReviewForm = ({ onSubmit }) => {
