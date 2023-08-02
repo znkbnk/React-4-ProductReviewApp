@@ -1,9 +1,10 @@
+//ProductReviewApp.js
+
 // Step 4: Create a ProductReviewApp component
 
-import ReviewForm from "./reviewForm";
-
-import React, { useState } from 'react';
-import productsData from './productsData'; // Assuming the productsData array is provided in a separate file
+import React, { useState } from "react";
+import productsData from "./productsData"; // Assuming the productsData array is provided in a separate file
+import ReviewForm from "./ReviewForm";
 
 const ProductReviewApp = () => {
   // Step 5: Create the state variables
@@ -16,7 +17,7 @@ const ProductReviewApp = () => {
   };
 
   const handleReviewSubmit = (rating, comment) => {
-    const newReview = { rating, comment };
+    const newReview = { productId: selectedProduct.id, rating, comment };
     setReviews([...reviews, newReview]);
   };
 
@@ -35,7 +36,9 @@ const ProductReviewApp = () => {
   const renderProductDetails = () => {
     if (!selectedProduct) return null;
 
-    const productReviews = reviews.filter((review) => review.productId === selectedProduct.id);
+    const productReviews = reviews.filter(
+      (review) => review.productId === selectedProduct.id
+    );
 
     return (
       <div>
@@ -56,7 +59,10 @@ const ProductReviewApp = () => {
         )}
 
         {/* Step 13: Integrate the ReviewForm component */}
-        <ReviewForm onSubmit={handleReviewSubmit} />
+        <ReviewForm
+          onSubmit={handleReviewSubmit}
+          productId={selectedProduct.id}
+        />
       </div>
     );
   };
